@@ -1,0 +1,1007 @@
+<!-- PAGE: 소재 이야기 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>소재 이야기 | UNCOMMON TOWEL - 뱀부 100% 프리미엄 페이스타월</title>
+  <meta name="description" content="면이 아닌 뱀부 100%를 선택한 이유, 습식 직조 공법의 차별성, 216g 최적 무게까지 — 언커먼타올의 소재 철학을 소개합니다.">
+  <meta name="keywords" content="언커먼타올, 뱀부 타월, 대나무 수건, 습식 직조, 항균 수건, 속건 수건, 면 vs 뱀부">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --text-black: #1A1A1A;
+      --text-dark: #333333;
+      --text-gray: #666666;
+      --text-light: #999999;
+      --text-muted: #BCBCBC;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F5F5;
+      --bg-dark: #2D2D2D;
+      --border-light: #E0E0E0;
+      --border-default: #D0D0D0;
+      --placeholder-bg: #E0E0E0;
+      --placeholder-icon: #BCBCBC;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      color: var(--text-gray);
+      line-height: 1.6;
+      background: var(--bg-white);
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 버튼 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: var(--text-black);
+      color: #FFFFFF;
+      border: 1px solid var(--text-black);
+    }
+    .btn-secondary {
+      background: var(--bg-white);
+      color: var(--text-black);
+      border: 1px solid var(--border-default);
+    }
+
+    /* 섹션 공통 */
+    .section-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* 이미지 플레이스홀더 */
+    .img-placeholder {
+      background: var(--placeholder-bg);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .img-placeholder svg {
+      color: var(--placeholder-icon);
+      width: 48px;
+      height: 48px;
+    }
+
+    /* ==========================================
+       헤더
+       ========================================== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-black);
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      position: relative;
+    }
+    .nav-item {
+      position: relative;
+    }
+    .nav-item > a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-item.active > a {
+      color: var(--text-black);
+      font-weight: 600;
+    }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 12px 0;
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      box-shadow: var(--shadow-md);
+    }
+    .nav-item:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 8px 20px;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+    .nav-dropdown a:hover {
+      background: var(--bg-light);
+      color: var(--text-black);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* ==========================================
+       페이지 헤더
+       ========================================== */
+    .page-header {
+      padding: 80px 0 60px;
+      background: var(--bg-white);
+      text-align: center;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .page-header .section-title {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+    .page-header .section-desc {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 17px;
+    }
+
+    /* ==========================================
+       섹션 1: 비교 표
+       ========================================== */
+    .comparison-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+    .comparison-table {
+      max-width: 900px;
+      margin: 48px auto 0;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-white);
+    }
+    .comparison-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .comparison-table th {
+      background: var(--bg-dark);
+      color: #FFFFFF;
+      padding: 16px;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .comparison-table td {
+      padding: 16px;
+      font-size: 15px;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+    }
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    .comparison-table td:first-child {
+      font-weight: 600;
+      color: var(--text-black);
+      width: 25%;
+    }
+    .comparison-table td:nth-child(2) {
+      color: var(--text-gray);
+      width: 37.5%;
+    }
+    .comparison-table td:nth-child(3) {
+      color: var(--text-dark);
+      font-weight: 500;
+      width: 37.5%;
+    }
+    .comparison-note {
+      max-width: 900px;
+      margin: 32px auto 0;
+      padding: 24px;
+      background: var(--bg-white);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* ==========================================
+       섹션 2: 좌우 분할
+       ========================================== */
+    .wet-weaving-section {
+      padding: 80px 0;
+      background: var(--bg-white);
+    }
+    .wet-weaving-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .wet-weaving-text h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .wet-weaving-text p {
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .wet-weaving-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ==========================================
+       섹션 3: 그램수
+       ========================================== */
+    .weight-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+    .weight-infographic {
+      max-width: 800px;
+      margin: 48px auto 0;
+      background: var(--bg-white);
+      border-radius: var(--radius-md);
+      padding: 48px;
+      border: 1px solid var(--border-light);
+    }
+    .weight-spectrum {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .weight-item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .weight-label {
+      min-width: 80px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-black);
+    }
+    .weight-label.optimal {
+      color: var(--text-black);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .weight-bar-container {
+      flex: 1;
+      height: 32px;
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .weight-bar {
+      height: 100%;
+      background: var(--text-muted);
+      transition: width 0.3s;
+    }
+    .weight-item.optimal .weight-bar {
+      background: var(--text-black);
+    }
+    .weight-desc {
+      min-width: 300px;
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+    .weight-item.optimal .weight-desc {
+      font-weight: 600;
+      color: var(--text-black);
+    }
+    .weight-note {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-light);
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* ==========================================
+       섹션 4: KC 인증 (좌우 반전)
+       ========================================== */
+    .certification-section {
+      padding: 80px 0;
+      background: var(--bg-white);
+    }
+    .certification-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .certification-text h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .certification-text p {
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .certification-text p:last-child {
+      margin-bottom: 0;
+    }
+    .certification-badges {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .cert-badge {
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      text-align: center;
+    }
+    .cert-badge-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 12px;
+      background: var(--bg-white);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cert-badge-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--text-dark);
+    }
+    .cert-badge-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-black);
+      margin-bottom: 4px;
+    }
+    .cert-badge-value {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* ==========================================
+       CTA 섹션
+       ========================================== */
+    .cta-section {
+      padding: 80px 0;
+      background: var(--bg-dark);
+      text-align: center;
+    }
+    .cta-section .section-title {
+      color: #FFFFFF;
+      max-width: 600px;
+      margin: 0 auto 16px;
+    }
+    .cta-section .section-desc {
+      color: rgba(255,255,255,0.6);
+      margin: 0 auto 32px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-section .btn-primary {
+      background: #FFFFFF;
+      color: var(--text-black);
+      border-color: #FFFFFF;
+    }
+    .cta-section .btn-secondary {
+      color: #FFFFFF;
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    /* ==========================================
+       푸터
+       ========================================== */
+    .footer {
+      padding: 60px 0 32px;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .footer-brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .footer-cert-mark {
+      display: inline-block;
+      padding: 6px 12px;
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 4px 0;
+    }
+    .footer-col a:hover {
+      color: var(--text-dark);
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+    }
+    .footer-links a:hover {
+      color: var(--text-dark);
+    }
+
+    /* TOP 버튼 */
+    .top-button {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--text-black);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      box-shadow: var(--shadow-md);
+      z-index: 90;
+    }
+    .top-button.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .top-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ==========================================
+       반응형
+       ========================================== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .mobile-menu-btn svg {
+        width: 24px;
+        height: 24px;
+        color: var(--text-dark);
+      }
+
+      .page-header {
+        padding: 60px 0 40px;
+      }
+      .page-header .section-title {
+        font-size: 32px;
+      }
+      .page-header .section-desc {
+        font-size: 15px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .comparison-section,
+      .wet-weaving-section,
+      .weight-section,
+      .certification-section,
+      .cta-section {
+        padding: 60px 0;
+      }
+
+      .comparison-table {
+        border-radius: 0;
+        margin-left: -24px;
+        margin-right: -24px;
+      }
+      .comparison-table th,
+      .comparison-table td {
+        padding: 12px;
+        font-size: 14px;
+      }
+      .comparison-table td:first-child {
+        font-size: 13px;
+      }
+      .comparison-note {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 14px;
+      }
+
+      .wet-weaving-inner,
+      .certification-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .certification-inner {
+        grid-template-columns: 1fr;
+      }
+      .certification-inner > div:first-child {
+        order: 2;
+      }
+      .certification-inner > div:last-child {
+        order: 1;
+      }
+
+      .weight-infographic {
+        padding: 32px 24px;
+      }
+      .weight-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .weight-desc {
+        min-width: auto;
+        font-size: 13px;
+      }
+
+      .certification-badges {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cta-buttons .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .top-button {
+        bottom: 24px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="page_01.html" class="nav-logo">UNCOMMON TOWEL</a>
+        <nav class="nav-links">
+          <div class="nav-item">
+            <a href="page_01.html">메인</a>
+          </div>
+          <div class="nav-item active">
+            <a href="page_02.html">브랜드 <i data-lucide="chevron-down" style="width:16px;height:16px;"></i></a>
+            <div class="nav-dropdown">
+              <a href="page_02.html">브랜드 철학</a>
+              <a href="page_03.html">브랜드 스토리</a>
+              <a href="page_04.html">브랜드 여정</a>
+              <a href="page_05.html">소재 이야기</a>
+              <a href="page_06.html">지속가능성</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="page_07.html">제품</a>
+          </div>
+          <div class="nav-item">
+            <a href="page_08.html">타월 가이드</a>
+          </div>
+          <div class="nav-item">
+            <a href="page_09.html">B2B문의 <i data-lucide="chevron-down" style="width:16px;height:16px;"></i></a>
+            <div class="nav-dropdown">
+              <a href="page_09.html">대량구매</a>
+              <a href="page_10.html">파트너십</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="page_11.html">고객 후기</a>
+          </div>
+          <div class="nav-item">
+            <a href="page_12.html">고객센터 <i data-lucide="chevron-down" style="width:16px;height:16px;"></i></a>
+            <div class="nav-dropdown">
+              <a href="page_12.html">FAQ</a>
+              <a href="page_13.html">1:1 문의</a>
+              <a href="page_14.html">주문 조회</a>
+              <a href="page_15.html">매장 안내</a>
+            </div>
+          </div>
+        </nav>
+        <div class="nav-actions">
+          <i data-lucide="search" class="nav-icon"></i>
+          <i data-lucide="user" class="nav-icon"></i>
+          <i data-lucide="shopping-cart" class="nav-icon"></i>
+          <button class="mobile-menu-btn"><i data-lucide="menu"></i></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 페이지 헤더 -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="section-title">소재 이야기</h1>
+        <p class="section-desc">면이 아닌 뱀부 100%를 선택한 이유,<br>습식 직조 공법의 차별성을 소개합니다.</p>
+      </div>
+    </section>
+
+    <!-- 섹션 1: 면이 아닌 뱀부를 선택한 이유 -->
+    <section class="comparison-section">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">면이 아닌 뱀부를 선택한 이유</h2>
+          <p class="section-desc mx-auto">100% 대나무 섬유가 만드는 차이</p>
+        </div>
+        
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>항목</th>
+                <th>면(Cotton)</th>
+                <th>뱀부(Bamboo) 100%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>흡수력</td>
+                <td>보통</td>
+                <td>500cc도 흘러내리지 않음</td>
+              </tr>
+              <tr>
+                <td>건조 속도</td>
+                <td>기준</td>
+                <td>면 대비 2배 빠름</td>
+              </tr>
+              <tr>
+                <td>항균성</td>
+                <td>없음 (세균 번식)</td>
+                <td>95% 살균 (KC 인증)</td>
+              </tr>
+              <tr>
+                <td>냄새</td>
+                <td>1~2일 사용 시 발생</td>
+                <td>2~3일 사용해도 무취</td>
+              </tr>
+              <tr>
+                <td>자연건조 후 촉감</td>
+                <td>뻣뻣해짐</td>
+                <td>부드러움 유지</td>
+              </tr>
+              <tr>
+                <td>건조기 사용</td>
+                <td>수축·변형 우려</td>
+                <td>사용 가능</td>
+              </tr>
+              <tr>
+                <td>친환경성</td>
+                <td>대규모 농약·관개 필요</td>
+                <td>농약 불필요, 빠른 재생</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="comparison-note">
+          뱀부가 좋다는 건 많은 사람이 알아요. 그런데 뱀부 100%를 고집하는 브랜드는 거의 없어요. 면을 섞으면 원가는 줄지만, 항균성과 속건성이 무너지거든요.
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 2: 습식 직조, 거의 사라진 공법 -->
+    <section class="wet-weaving-section">
+      <div class="container">
+        <div class="wet-weaving-inner">
+          <div class="img-placeholder" style="aspect-ratio:4/3;">
+            <i data-lucide="image"></i>
+          </div>
+          <div class="wet-weaving-text">
+            <h2>습식 직조,<br>거의 사라진 공법</h2>
+            <p>70도 습도를 유지한 상태에서 섬유를 짜는 공법이에요.</p>
+            <p>건조한 상태에서 짜는 일반 직조와 달리, 습식 직조는 섬유가 수분을 머금은 채로 결합돼요. 그래서 표면이 훨씬 부드럽고, 흡수 구조가 촘촘하게 형성됩니다.</p>
+            <p>국내에서 이 방식으로 수건을 제작하는 곳은 손에 꼽아요. 시간이 오래 걸리고, 설비 관리가 까다롭기 때문이에요.</p>
+            <p>우리가 이 공법을 포기하지 않는 이유는 단 하나. 결과가 확실히 다르니까요.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 3: 216g — 4년간 찾아낸 최적의 무게 -->
+    <section class="weight-section">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">216g — 4년간 찾아낸 최적의 무게</h2>
+        </div>
+
+        <div class="weight-infographic">
+          <div class="weight-spectrum">
+            <div class="weight-item">
+              <div class="weight-label">180g</div>
+              <div class="weight-bar-container">
+                <div class="weight-bar" style="width:72%;"></div>
+              </div>
+              <div class="weight-desc">가볍고 빠르게 마르지만, 흡수력과 두께감 부족</div>
+            </div>
+
+            <div class="weight-item optimal">
+              <div class="weight-label">
+                216g
+                <i data-lucide="star" style="width:16px;height:16px;"></i>
+              </div>
+              <div class="weight-bar-container">
+                <div class="weight-bar" style="width:100%;"></div>
+              </div>
+              <div class="weight-desc">흡수력·건조 속도·촉감·무게감의 균형점 (최적)</div>
+            </div>
+
+            <div class="weight-item">
+              <div class="weight-label">250g 이상</div>
+              <div class="weight-bar-container">
+                <div class="weight-bar" style="width:85%;"></div>
+              </div>
+              <div class="weight-desc">흡수력은 좋지만 무겁고 건조 느림</div>
+            </div>
+          </div>
+
+          <div class="weight-note">
+            5g을 줄이면 흡수력이 달라지고, 10g을 늘리면 건조 속도가 느려져요. 우리는 280g까지 모두 테스트했고, 216g에서 모든 균형이 맞았습니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 4: KC 인증과 시험성적서 -->
+    <section class="certification-section">
+      <div class="container">
+        <div class="certification-inner">
+          <div class="certification-text">
+            <h2>KC 인증과<br>시험성적서가 말하는 것</h2>
+            <p>KC 인증 1등급은 아기 피부에 직접 닿아도 안전하다는 국가 인증이에요.</p>
+            <p>우리는 여기서 멈추지 않았어요. 항균 95% 시험성적서, 흡수 속도와 건조 속도 테스트, 세탁 견뢰도 최고 등급(4-5급)까지 — 모든 숫자를 투명하게 공개합니다.</p>
+            <p>숫자는 거짓말을 하지 않으니까요.</p>
+
+            <div class="certification-badges">
+              <div class="cert-badge">
+                <div class="cert-badge-icon">
+                  <i data-lucide="shield-check"></i>
+                </div>
+                <p class="cert-badge-title">KC 인증</p>
+                <p class="cert-badge-value">1등급</p>
+              </div>
+              <div class="cert-badge">
+                <div class="cert-badge-icon">
+                  <i data-lucide="droplet"></i>
+                </div>
+                <p class="cert-badge-title">항균성</p>
+                <p class="cert-badge-value">95% 살균</p>
+              </div>
+              <div class="cert-badge">
+                <div class="cert-badge-icon">
+                  <i data-lucide="wind"></i>
+                </div>
+                <p class="cert-badge-title">건조 속도</p>
+                <p class="cert-badge-value">면 대비 2배</p>
+              </div>
+              <div class="cert-badge">
+                <div class="cert-badge-icon">
+                  <i data-lucide="award"></i>
+                </div>
+                <p class="cert-badge-title">세탁 견뢰도</p>
+                <p class="cert-badge-value">4-5급 (최고등급)</p>
+              </div>
+            </div>
+          </div>
+          <div class="img-placeholder" style="aspect-ratio:4/3;">
+            <i data-lucide="image"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA 섹션 -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="section-title">소재의 차이를 직접 경험해보세요</h2>
+        <p class="section-desc mx-auto">언커먼타올의 뱀부 100% 페이스타월을 만나보세요.</p>
+        <div class="cta-buttons">
+          <a href="page_07.html" class="btn btn-primary">제품 보러가기</a>
+          <a href="page_08.html" class="btn btn-secondary">타월 가이드 보기</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand-name">UNCOMMON TOWEL</p>
+          <p class="footer-brand-desc">대표: [보완 필요: 대표자명]<br>사업자등록번호: [보완 필요]<br>주소: [보완 필요: 사무실 주소]<br>전화: [보완 필요] | 이메일: [보완 필요]</p>
+          <div class="footer-cert-mark">KC 인증 1등급</div>
+        </div>
+        <div>
+          <p class="footer-col-title">BRAND</p>
+          <a href="page_02.html">브랜드 철학</a>
+          <a href="page_03.html">브랜드 스토리</a>
+          <a href="page_05.html">소재 이야기</a>
+        </div>
+        <div>
+          <p class="footer-col-title">SHOP</p>
+          <a href="page_07.html">제품</a>
+          <a href="page_08.html">타월 가이드</a>
+        </div>
+        <div>
+          <p class="footer-col-title">SUPPORT</p>
+          <a href="page_12.html">FAQ</a>
+          <a href="page_13.html">1:1 문의</a>
+          <a href="page_14.html">주문 조회</a>
+          <a href="page_15.html">매장 안내</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 UNCOMMON TOWEL. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="#">개인정보처리방침</a>
+          <a href="#">이용약관</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOP 버튼 -->
+  <button class="top-button" id="topButton">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <script>
+    lucide.createIcons();
+
+    // TOP 버튼
+    const topButton = document.getElementById('topButton');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        topButton.classList.add('visible');
+      } else {
+        topButton.classList.remove('visible');
+      }
+    });
+    topButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
