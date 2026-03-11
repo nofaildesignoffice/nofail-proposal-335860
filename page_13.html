@@ -1,0 +1,676 @@
+<!-- PAGE: 1:1 문의 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1:1 문의 | UNCOMMON TOWEL - 뱀부 100% 프리미엄 페이스타월</title>
+  <meta name="description" content="언커먼타올 1:1 문의 - 제품, 주문, 배송 관련 문의를 남겨주시면 빠르게 답변드리겠습니다.">
+  <meta name="keywords" content="언커먼타올, 프리미엄 수건, 뱀부 타월, 페이스타월, 대나무 수건, 항균 수건, 속건 수건, 혼수 수건, 선물 수건">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --text-black: #1A1A1A;
+      --text-dark: #333333;
+      --text-gray: #666666;
+      --text-light: #999999;
+      --text-muted: #BCBCBC;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F5F5;
+      --bg-dark: #2D2D2D;
+      --bg-black: #1A1A1A;
+      --border-light: #E0E0E0;
+      --border-default: #D0D0D0;
+      --placeholder-bg: #E0E0E0;
+      --placeholder-icon: #BCBCBC;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --mint: #8AB9A7;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      color: var(--text-gray);
+      line-height: 1.6;
+      background: var(--bg-white);
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+      transition: all 0.3s;
+    }
+    .nav.scrolled {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      letter-spacing: 0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links > li {
+      position: relative;
+    }
+    .nav-links > li > a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: color 0.2s;
+    }
+    .nav-links > li > a:hover,
+    .nav-links > li > a.active {
+      color: var(--text-black);
+    }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      min-width: 180px;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s;
+      box-shadow: var(--shadow-md);
+      margin-top: 8px;
+    }
+    .nav-links > li:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: var(--text-gray);
+      transition: background 0.2s;
+    }
+    .nav-dropdown a:hover {
+      background: var(--bg-light);
+      color: var(--text-black);
+    }
+    .nav-utils {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .nav-utils button {
+      width: 24px;
+      height: 24px;
+      color: var(--text-dark);
+    }
+    .nav-utils svg {
+      width: 24px;
+      height: 24px;
+    }
+    .mobile-toggle {
+      display: none;
+      width: 24px;
+      height: 24px;
+      color: var(--text-dark);
+    }
+
+    /* Hero */
+    .page-hero {
+      padding: 80px 0 60px;
+      background: var(--bg-white);
+      text-align: center;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .page-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+    }
+    .page-desc {
+      font-size: 16px;
+      color: var(--text-gray);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Form Section */
+    .form-section {
+      padding: 80px 0;
+      background: var(--bg-white);
+    }
+    .form-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 32px;
+    }
+    .form-label {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-black);
+      margin-bottom: 12px;
+    }
+    .form-label .required {
+      color: #E53E3E;
+      margin-left: 4px;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text-dark);
+      transition: border-color 0.2s;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--text-black);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 160px;
+      line-height: 1.6;
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+      appearance: none;
+      padding-right: 40px;
+    }
+    .form-helper {
+      display: block;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .form-check input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+    .form-check label {
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.6;
+      cursor: pointer;
+    }
+    .form-check label a {
+      color: var(--text-dark);
+      text-decoration: underline;
+    }
+    .form-submit-wrap {
+      margin-top: 48px;
+      text-align: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 48px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: var(--text-black);
+      color: #FFFFFF;
+      border: 1px solid var(--text-black);
+    }
+    .form-notice {
+      margin-top: 24px;
+      padding: 20px;
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+    .form-notice strong {
+      color: var(--text-black);
+      font-weight: 600;
+    }
+
+    /* Info Cards */
+    .info-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .info-card {
+      padding: 32px;
+      background: var(--bg-white);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .info-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .info-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--text-dark);
+    }
+    .info-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 8px;
+    }
+    .info-desc {
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer-light {
+      padding: 60px 0 32px;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .footer-company-info {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--text-black);
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-bottom-links a {
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover {
+      color: var(--text-dark);
+    }
+
+    /* TOP Button */
+    .top-btn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--mint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      box-shadow: var(--shadow-md);
+      z-index: 90;
+    }
+    .top-btn.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .top-btn svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .page-title { font-size: 28px; }
+      .page-desc { font-size: 15px; }
+      .form-section { padding: 60px 0; }
+      .info-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .top-btn { bottom: 24px; right: 24px; width: 44px; height: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="page_01.html" class="nav-logo">UNCOMMON TOWEL</a>
+        <ul class="nav-links">
+          <li><a href="page_01.html">메인</a></li>
+          <li>
+            <a href="page_02.html">브랜드</a>
+            <ul class="nav-dropdown">
+              <li><a href="page_02.html">브랜드 철학</a></li>
+              <li><a href="page_03.html">브랜드 스토리</a></li>
+              <li><a href="page_04.html">브랜드 여정</a></li>
+              <li><a href="page_05.html">소재 이야기</a></li>
+              <li><a href="page_06.html">지속가능성</a></li>
+            </ul>
+          </li>
+          <li><a href="page_07.html">제품</a></li>
+          <li><a href="page_08.html">타월 가이드</a></li>
+          <li>
+            <a href="page_09.html">B2B문의</a>
+            <ul class="nav-dropdown">
+              <li><a href="page_09.html">대량구매</a></li>
+              <li><a href="page_10.html">파트너십</a></li>
+            </ul>
+          </li>
+          <li><a href="page_11.html">고객 후기</a></li>
+          <li>
+            <a href="page_12.html" class="active">고객센터</a>
+            <ul class="nav-dropdown">
+              <li><a href="page_12.html">FAQ</a></li>
+              <li><a href="page_13.html">1:1 문의</a></li>
+              <li><a href="page_14.html">주문 조회</a></li>
+              <li><a href="page_15.html">매장 안내</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="nav-utils">
+          <button><i data-lucide="search"></i></button>
+          <button><i data-lucide="user"></i></button>
+          <button><i data-lucide="shopping-cart"></i></button>
+          <button class="mobile-toggle"><i data-lucide="menu"></i></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">1:1 문의</h1>
+        <p class="page-desc">제품, 주문, 배송 관련 문의를 남겨주시면<br>빠르게 답변드리겠습니다.</p>
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+      <div class="container">
+        <div class="form-container">
+          <form>
+            <div class="form-group">
+              <label class="form-label">문의 유형<span class="required">*</span></label>
+              <select class="form-select" required>
+                <option value="">선택해주세요</option>
+                <option value="product">제품 문의</option>
+                <option value="order">주문 문의</option>
+                <option value="delivery">배송 문의</option>
+                <option value="return">반품/교환 문의</option>
+                <option value="b2b">B2B 문의</option>
+                <option value="etc">기타 문의</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">성함<span class="required">*</span></label>
+              <input type="text" class="form-input" placeholder="성함을 입력해주세요" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">이메일<span class="required">*</span></label>
+              <input type="email" class="form-input" placeholder="example@email.com" required>
+              <span class="form-helper">답변을 받으실 이메일 주소를 정확히 입력해주세요.</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">연락처<span class="required">*</span></label>
+              <input type="tel" class="form-input" placeholder="010-0000-0000" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">주문번호</label>
+              <input type="text" class="form-input" placeholder="주문번호를 입력해주세요 (선택)">
+              <span class="form-helper">주문/배송 문의 시 주문번호를 입력하시면 더 빠른 답변이 가능합니다.</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">문의 제목<span class="required">*</span></label>
+              <input type="text" class="form-input" placeholder="문의 제목을 입력해주세요" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">문의 내용<span class="required">*</span></label>
+              <textarea class="form-textarea" placeholder="문의 내용을 상세히 작성해주세요" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <div class="form-check">
+                <input type="checkbox" id="privacy" required>
+                <label for="privacy">개인정보 수집 및 이용에 동의합니다. <a href="#">(자세히 보기)</a></label>
+              </div>
+            </div>
+
+            <div class="form-submit-wrap">
+              <button type="submit" class="btn btn-primary">문의 등록하기</button>
+            </div>
+
+            <div class="form-notice">
+              <strong>답변 안내</strong><br>
+              • 평일 기준 1~2일 이내 답변드립니다.<br>
+              • 주말 및 공휴일에는 답변이 지연될 수 있습니다.<br>
+              • 급한 문의는 고객센터로 전화 주시면 더 빠른 상담이 가능합니다.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+      <div class="container">
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">
+              <i data-lucide="phone"></i>
+            </div>
+            <h3 class="info-title">전화 상담</h3>
+            <p class="info-desc">평일 9시~18시<br>빠른 상담이 필요하신 경우</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">
+              <i data-lucide="mail"></i>
+            </div>
+            <h3 class="info-title">이메일 문의</h3>
+            <p class="info-desc">24시간 접수 가능<br>영업일 기준 1~2일 내 답변</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">
+              <i data-lucide="clock"></i>
+            </div>
+            <h3 class="info-title">운영 시간</h3>
+            <p class="info-desc">평일 09:00 - 18:00<br>(토·일·공휴일 휴무)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-light">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand-name">UNCOMMON TOWEL</p>
+          <p class="footer-brand-desc">매일 피부에 닿는 수건의 품질에<br>타협하지 않습니다.</p>
+          <div class="footer-company-info">
+            대표: [보완 필요: 대표자명]<br>
+            사업자등록번호: [보완 필요]<br>
+            주소: [보완 필요: 사무실 주소]<br>
+            전화: [보완 필요] | 이메일: [보완 필요]
+          </div>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">BRAND</p>
+          <a href="page_02.html">브랜드 철학</a>
+          <a href="page_03.html">브랜드 스토리</a>
+          <a href="page_05.html">소재 이야기</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">SHOP</p>
+          <a href="page_07.html">제품</a>
+          <a href="page_08.html">타월 가이드</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">SUPPORT</p>
+          <a href="page_12.html">FAQ</a>
+          <a href="page_13.html">1:1 문의</a>
+          <a href="page_14.html">주문 조회</a>
+          <a href="page_15.html">매장 안내</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 UNCOMMON TOWEL. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">개인정보처리방침</a>
+          <a href="#">이용약관</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOP Button -->
+  <button class="top-btn" id="topBtn">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <script>
+    lucide.createIcons();
+
+    // Scroll header
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // TOP button
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        topBtn.classList.add('show');
+      } else {
+        topBtn.classList.remove('show');
+      }
+    });
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
