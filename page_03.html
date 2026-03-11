@@ -1,0 +1,697 @@
+<!-- PAGE: 브랜드 스토리 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>브랜드 스토리 | UNCOMMON TOWEL - 4년의 집착이 만든 수건</title>
+  <meta name="description" content="21살에 시작한 기념품 회사가 수건 하나에 모든 것을 건 이유. 4년간 5g 단위 테스트, 뱀부 100% 습식 직조. 언커먼타올이 만들어진 배경.">
+  <meta name="keywords" content="언커먼타올 스토리, 프리미엄 수건 개발, 뱀부 타월 브랜드, 수건 브랜드 스토리">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --text-black: #1A1A1A;
+      --text-dark: #333333;
+      --text-gray: #666666;
+      --text-light: #999999;
+      --text-muted: #BCBCBC;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F5F5;
+      --bg-dark: #2D2D2D;
+      --border-light: #E0E0E0;
+      --border-default: #D0D0D0;
+      --placeholder-bg: #E0E0E0;
+      --placeholder-icon: #BCBCBC;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      color: var(--text-gray);
+      line-height: 1.6;
+      background: var(--bg-white);
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 버튼 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: var(--text-black);
+      color: #FFFFFF;
+      border: 1px solid var(--text-black);
+    }
+    .btn-secondary {
+      background: var(--bg-white);
+      color: var(--text-black);
+      border: 1px solid var(--border-default);
+    }
+
+    /* 섹션 공통 텍스트 */
+    .section-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* 이미지 플레이스홀더 */
+    .img-placeholder {
+      background: var(--placeholder-bg);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .img-placeholder svg {
+      color: var(--placeholder-icon);
+      width: 48px;
+      height: 48px;
+    }
+
+    /* 내비게이션 */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      letter-spacing: 0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-links > li {
+      position: relative;
+    }
+    .nav-links > li > a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-dark);
+      display: block;
+      padding: 24px 0;
+    }
+    .nav-links > li > a.active {
+      color: var(--text-black);
+      font-weight: 600;
+    }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      min-width: 180px;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      box-shadow: var(--shadow-md);
+    }
+    .nav-links > li:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+    .nav-dropdown a:hover {
+      background: var(--bg-light);
+      color: var(--text-black);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-actions button {
+      color: var(--text-dark);
+    }
+    .nav-actions svg {
+      width: 20px;
+      height: 20px;
+    }
+    .nav-mobile-toggle {
+      display: none;
+    }
+
+    /* 푸터 */
+    .footer {
+      padding: 60px 0 32px;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 4px 0;
+    }
+    .footer-col a:hover {
+      color: var(--text-dark);
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    /* TOP 버튼 */
+    .btn-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--text-black);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 99;
+    }
+    .btn-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .btn-top svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* 섹션 1: 14년 전, 21살의 선택 */
+    .hero-story {
+      padding: 120px 0 80px;
+      background: var(--bg-white);
+    }
+    .hero-story .section-title {
+      font-size: 42px;
+      max-width: 700px;
+      margin: 0 auto 16px;
+      text-align: center;
+    }
+    .hero-story .section-desc {
+      max-width: 600px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .hero-story-image {
+      max-width: 960px;
+      margin: 0 auto 48px;
+    }
+    .story-content {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .story-content p {
+      font-size: 17px;
+      color: var(--text-dark);
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+
+    /* 섹션 2: 왜 하필 수건이었을까요 */
+    .story-split {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+    .story-split-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .story-split .section-title {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+    .story-split-content p {
+      font-size: 17px;
+      color: var(--text-dark);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    /* 섹션 3: 4년의 집착 */
+    .story-timeline {
+      padding: 80px 0;
+      background: var(--bg-white);
+    }
+    .story-timeline .section-title {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .timeline-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 40px;
+      margin-bottom: 56px;
+      position: relative;
+    }
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 90px;
+      top: 60px;
+      bottom: -56px;
+      width: 1px;
+      background: var(--border-light);
+    }
+    .timeline-period {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-black);
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline-period::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-black);
+    }
+    .timeline-content p {
+      font-size: 16px;
+      color: var(--text-dark);
+      line-height: 1.8;
+    }
+
+    /* 섹션 4: 은방울꽃 */
+    .story-meaning {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+    .story-meaning-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .story-meaning .section-title {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+    .story-meaning-content p {
+      font-size: 17px;
+      color: var(--text-dark);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    /* 섹션 5: 브랜드 탐색 유도 */
+    .story-cta {
+      padding: 80px 0;
+      background: var(--bg-white);
+    }
+    .story-cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .story-cta-card {
+      padding: 40px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .story-cta-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-actions button:not(.nav-mobile-toggle) {
+        display: none;
+      }
+      .nav-mobile-toggle {
+        display: block;
+      }
+      .section-title { font-size: 28px; }
+      .hero-story { padding: 80px 0 60px; }
+      .hero-story .section-title { font-size: 32px; }
+      .story-split-inner,
+      .story-meaning-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .story-split-inner .img-placeholder,
+      .story-meaning-inner .img-placeholder {
+        order: -1;
+      }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .timeline-item::after { display: none; }
+      .timeline-period {
+        padding-left: 0;
+        margin-bottom: 8px;
+      }
+      .timeline-period::before { display: none; }
+      .story-cta-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      .btn-top {
+        bottom: 24px;
+        right: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="page_01.html" class="nav-logo">UNCOMMON TOWEL</a>
+        <ul class="nav-links">
+          <li><a href="page_01.html">메인</a></li>
+          <li>
+            <a href="page_02.html" class="active">브랜드</a>
+            <div class="nav-dropdown">
+              <a href="page_02.html">브랜드 철학</a>
+              <a href="page_03.html">브랜드 스토리</a>
+              <a href="page_04.html">브랜드 여정</a>
+              <a href="page_05.html">소재 이야기</a>
+              <a href="page_06.html">지속가능성</a>
+            </div>
+          </li>
+          <li><a href="page_07.html">제품</a></li>
+          <li><a href="page_08.html">타월 가이드</a></li>
+          <li>
+            <a href="page_09.html">B2B문의</a>
+            <div class="nav-dropdown">
+              <a href="page_09.html">대량구매</a>
+              <a href="page_10.html">파트너십</a>
+            </div>
+          </li>
+          <li><a href="page_11.html">고객 후기</a></li>
+          <li>
+            <a href="page_12.html">고객센터</a>
+            <div class="nav-dropdown">
+              <a href="page_12.html">FAQ</a>
+              <a href="page_13.html">1:1 문의</a>
+              <a href="page_14.html">주문 조회</a>
+              <a href="page_15.html">매장 안내</a>
+            </div>
+          </li>
+        </ul>
+        <div class="nav-actions">
+          <button><i data-lucide="search"></i></button>
+          <button><i data-lucide="user"></i></button>
+          <button><i data-lucide="shopping-cart"></i></button>
+          <button class="nav-mobile-toggle"><i data-lucide="menu"></i></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 섹션 1: 14년 전, 21살의 선택 -->
+    <section class="hero-story">
+      <div class="container">
+        <h1 class="section-title">14년 전, 21살의 선택</h1>
+        <p class="section-desc mx-auto">기념품 납품으로 시작한 회사가, 수건 하나에 모든 것을 걸기까지</p>
+        
+        <div class="hero-story-image img-placeholder" style="aspect-ratio:16/9;">
+          <i data-lucide="image"></i>
+        </div>
+
+        <div class="story-content">
+          <p>21살에 이 일을 시작했어요. 아버지가 만든 기념품 회사에서. 시계를 납품하고, 공공기관에 특판을 돌리고, 한때 매출 80억까지 올렸어요.</p>
+          <p>그런데 어느 날 깨달았어요. 남의 브랜드 이름을 새긴 기념품을 수십만 개 팔아도, 우리 이름은 아무도 기억하지 않는다는 걸.</p>
+          <p>직접 만든 제품. 직접 건 이름. 누군가의 일상에 매일 닿는 물건. 그게 하고 싶었어요.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 2: 왜 하필 수건이었을까요 -->
+    <section class="story-split">
+      <div class="container">
+        <div class="story-split-inner">
+          <div class="story-split-content">
+            <h2 class="section-title">왜 하필 수건이었을까요</h2>
+            <p>매일 아침, 가장 먼저 피부에 닿는 것. 매일 밤, 하루의 마지막을 닦아내는 것. 수건이에요.</p>
+            <p>그런데 시중의 수건은 두 가지뿐이었어요. 싸고 금방 낡는 것, 아니면 비싸기만 하고 다를 게 없는 것.</p>
+            <p>한 번 쓰면 절대 다른 수건으로 돌아갈 수 없는 것. 그걸 만들겠다고 결심했어요.</p>
+          </div>
+          <div class="img-placeholder" style="aspect-ratio:4/3;">
+            <i data-lucide="image"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 3: 4년의 집착 -->
+    <section class="story-timeline">
+      <div class="container">
+        <h2 class="section-title">4년의 집착</h2>
+        
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="timeline-period">2021년 여름</div>
+            <div class="timeline-content">
+              <p>본격 개발 시작. 뱀부 100%로 방향을 잡았어요. 면을 섞으면 원가는 줄지만, 항균성과 속건성이 무너지니까.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">그램수 테스트</div>
+            <div class="timeline-content">
+              <p>5g 단위로 280g까지 올려가며 전부 짜봤어요. 180g은 너무 얇고, 250g은 무겁고. 216g — 손에 감기는 무게, 물을 빨아들이는 속도, 마르는 시간이 전부 맞아떨어지는 지점이었어요.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">색상의 집착</div>
+            <div class="timeline-content">
+              <p>진한 색은 포기했어요. 염색 횟수가 늘면 섬유가 상하니까. 대신 극단적으로 연한 12가지 색을 만들었어요. 민트 한 가지 색을 잡는 데만 수십 번을 수정했어요.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-period">최종 검증</div>
+            <div class="timeline-content">
+              <p>개발자인 저보다 더 까다로운 사람이 있었어요. 아내예요. 그 기준을 통과하는 데 4년이 걸렸어요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 4: 은방울꽃, 다시 찾은 행복 -->
+    <section class="story-meaning">
+      <div class="container">
+        <div class="story-meaning-inner">
+          <div class="img-placeholder" style="aspect-ratio:4/3;">
+            <i data-lucide="image"></i>
+          </div>
+          <div class="story-meaning-content">
+            <h2 class="section-title">은방울꽃, 다시 찾은 행복</h2>
+            <p>언커먼타올 패키지 안에는 은방울꽃 리플렛이 들어 있어요.</p>
+            <p>은방울꽃의 꽃말은 '다시 찾은 행복'.</p>
+            <p>거창한 행복이 아니에요. 세수 후 얼굴에 수건을 대는 그 순간, '아, 이게 좋다'고 느끼는 작은 감각. 그 감각을 되찾는 거예요.</p>
+            <p>받는 순간부터 쓰는 순간까지, 그 경험 전체가 언커먼타올이에요.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 5: 브랜드 탐색 유도 -->
+    <section class="story-cta">
+      <div class="container">
+        <div class="story-cta-grid">
+          <div class="story-cta-card">
+            <h3>이 수건이 어떤 과정을<br>거쳐 왔는지</h3>
+            <a href="page_04.html" class="btn btn-primary">자세히 보기</a>
+          </div>
+          <div class="story-cta-card">
+            <h3>뱀부 100% 소재가<br>특별한 이유</h3>
+            <a href="page_05.html" class="btn btn-primary">자세히 보기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand-name">UNCOMMON TOWEL</p>
+          <p class="footer-brand-desc">매일 피부에 닿는 수건,<br>타협하지 않습니다.</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">BRAND</p>
+          <a href="page_02.html">브랜드 철학</a>
+          <a href="page_03.html">브랜드 스토리</a>
+          <a href="page_05.html">소재 이야기</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">SHOP</p>
+          <a href="page_07.html">제품</a>
+          <a href="page_08.html">타월 가이드</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">SUPPORT</p>
+          <a href="page_12.html">FAQ</a>
+          <a href="page_13.html">1:1 문의</a>
+          <a href="page_14.html">주문 조회</a>
+          <a href="page_15.html">매장 안내</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 UNCOMMON TOWEL. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">개인정보처리방침</a>
+          <a href="#">이용약관</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOP 버튼 -->
+  <button class="btn-top" id="btnTop">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <script>
+    lucide.createIcons();
+
+    // TOP 버튼
+    const btnTop = document.getElementById('btnTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnTop.classList.add('visible');
+      } else {
+        btnTop.classList.remove('visible');
+      }
+    });
+    btnTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
