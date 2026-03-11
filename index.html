@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>언커먼타올 - 웹사이트 기획 프리뷰</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f8f9fa; color: #333; }
+    .gnb { display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 64px; background: #fff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+    .gnb-brand { font-weight: 700; font-size: 18px; text-decoration: none; color: #111; }
+    .gnb-nav { display: flex; align-items: center; gap: 8px; }
+    .gnb-link { text-decoration: none; color: #555; font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 6px; transition: all 0.2s; }
+    .gnb-link:hover { color: #111; background: #f3f4f6; }
+    .gnb-link .arrow { font-size: 10px; margin-left: 2px; }
+    .gnb-dropdown { position: relative; }
+    .gnb-dropdown-content { display: none; position: absolute; top: 100%; left: 0; min-width: 180px; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 6px 0; z-index: 200; }
+    .gnb-dropdown:hover .gnb-dropdown-content { display: block; }
+    .gnb-dropdown-content a { display: block; padding: 8px 16px; text-decoration: none; color: #555; font-size: 13px; transition: background 0.15s; }
+    .gnb-dropdown-content a:hover { background: #f3f4f6; color: #111; }
+    .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+    .header { text-align: center; margin-bottom: 48px; }
+    .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .header p { color: #666; font-size: 16px; }
+    .badge { display: inline-block; background: #000; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 12px; margin-bottom: 16px; }
+    .pages { display: flex; flex-direction: column; gap: 12px; }
+    .page-link { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: #fff; border-radius: 12px; text-decoration: none; color: #333; border: 1px solid #e5e7eb; transition: all 0.2s; }
+    .page-link:hover { border-color: #000; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .page-num { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f3f5; border-radius: 8px; font-weight: 600; font-size: 14px; color: #666; }
+    .page-name { font-weight: 500; font-size: 16px; }
+    .footer { text-align: center; margin-top: 48px; color: #999; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <nav class="gnb">
+    <a href="index.html" class="gnb-brand">언커먼타올</a>
+    <div class="gnb-nav">
+          <a href="page_01.html" class="gnb-link">메인 (Home)</a>
+          <div class="gnb-dropdown">
+            <a href="page_02.html" class="gnb-link">브랜드 (About) <span class="arrow">▾</span></a>
+            <div class="gnb-dropdown-content">
+            <a href="page_02.html">브랜드 철학</a>
+            <a href="page_03.html">브랜드 스토리</a>
+            <a href="page_04.html">브랜드 여정</a>
+            <a href="page_05.html">소재 이야기</a>
+            <a href="page_06.html">지속가능성</a>
+            </div>
+          </div>
+          <a href="page_07.html" class="gnb-link">제품 (Product)</a>
+          <a href="page_08.html" class="gnb-link">타월 가이드 (Towel Guide)</a>
+          <div class="gnb-dropdown">
+            <a href="page_09.html" class="gnb-link">B2B문의 <span class="arrow">▾</span></a>
+            <div class="gnb-dropdown-content">
+            <a href="page_09.html">대량구매 (Bulk Order)</a>
+            <a href="page_10.html">파트너십 (Partnership)</a>
+            </div>
+          </div>
+          <a href="page_11.html" class="gnb-link">고객 후기 (Reviews)</a>
+          <div class="gnb-dropdown">
+            <a href="page_12.html" class="gnb-link">고객센터 (Support) <span class="arrow">▾</span></a>
+            <div class="gnb-dropdown-content">
+            <a href="page_12.html">FAQ</a>
+            <a href="page_13.html">1:1 문의</a>
+            <a href="page_14.html">주문 조회</a>
+            <a href="page_15.html">매장 안내 (오프라인 매장 또는 팝업스토어)</a>
+            </div>
+          </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="header">
+      <div class="badge">NoFail Design</div>
+      <h1>언커먼타올</h1>
+      <p>웹사이트 와이어프레임 프리뷰 (15페이지)</p>
+    </div>
+    <div class="pages">
+        <a href="page_01.html" class="page-link">
+          <span class="page-num">01</span>
+          <span class="page-name">메인 (Home)</span>
+        </a>
+        <a href="page_02.html" class="page-link">
+          <span class="page-num">02</span>
+          <span class="page-name">브랜드 철학</span>
+        </a>
+        <a href="page_03.html" class="page-link">
+          <span class="page-num">03</span>
+          <span class="page-name">브랜드 스토리</span>
+        </a>
+        <a href="page_04.html" class="page-link">
+          <span class="page-num">04</span>
+          <span class="page-name">브랜드 여정</span>
+        </a>
+        <a href="page_05.html" class="page-link">
+          <span class="page-num">05</span>
+          <span class="page-name">소재 이야기</span>
+        </a>
+        <a href="page_06.html" class="page-link">
+          <span class="page-num">06</span>
+          <span class="page-name">지속가능성</span>
+        </a>
+        <a href="page_07.html" class="page-link">
+          <span class="page-num">07</span>
+          <span class="page-name">제품 (Product)</span>
+        </a>
+        <a href="page_08.html" class="page-link">
+          <span class="page-num">08</span>
+          <span class="page-name">타월 가이드 (Towel Guide)</span>
+        </a>
+        <a href="page_09.html" class="page-link">
+          <span class="page-num">09</span>
+          <span class="page-name">대량구매 (Bulk Order)</span>
+        </a>
+        <a href="page_10.html" class="page-link">
+          <span class="page-num">10</span>
+          <span class="page-name">파트너십 (Partnership)</span>
+        </a>
+        <a href="page_11.html" class="page-link">
+          <span class="page-num">11</span>
+          <span class="page-name">고객 후기 (Reviews)</span>
+        </a>
+        <a href="page_12.html" class="page-link">
+          <span class="page-num">12</span>
+          <span class="page-name">FAQ</span>
+        </a>
+        <a href="page_13.html" class="page-link">
+          <span class="page-num">13</span>
+          <span class="page-name">1:1 문의</span>
+        </a>
+        <a href="page_14.html" class="page-link">
+          <span class="page-num">14</span>
+          <span class="page-name">주문 조회</span>
+        </a>
+        <a href="page_15.html" class="page-link">
+          <span class="page-num">15</span>
+          <span class="page-name">매장 안내 (오프라인 매장 또는 팝업스토어)</span>
+        </a>
+    </div>
+    <div class="footer">Powered by NoFail Design Automation</div>
+  </div>
+</body>
+</html>
