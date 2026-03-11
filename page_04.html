@@ -1,0 +1,728 @@
+<!-- PAGE: 브랜드 여정 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>브랜드 여정 | UNCOMMON TOWEL - 흔한 수건에서 비범한 기준으로</title>
+  <meta name="description" content="기념품 납품 회사에서 프리미엄 페이스타월 브랜드로. 4년간의 R&D, KC 인증, 그리고 앞으로의 비전. 언커먼타올의 여정.">
+  <meta name="keywords" content="언커먼타올 연혁, 수건 브랜드 성장, 프리미엄 타월 브랜드 비전, 언커먼타올, 프리미엄 수건, 뱀부 타월, 페이스타월, 대나무 수건, 항균 수건, 속건 수건">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --text-black: #1A1A1A;
+      --text-dark: #333333;
+      --text-gray: #666666;
+      --text-light: #999999;
+      --text-muted: #BCBCBC;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F5F5;
+      --bg-dark: #2D2D2D;
+      --bg-black: #1A1A1A;
+      --border-light: #E0E0E0;
+      --border-default: #D0D0D0;
+      --placeholder-bg: #E0E0E0;
+      --placeholder-icon: #BCBCBC;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      color: var(--text-gray);
+      line-height: 1.6;
+      background: var(--bg-white);
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 헤더 */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      letter-spacing: 0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-link {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-dark);
+      position: relative;
+    }
+    .nav-link.active {
+      color: var(--text-black);
+      font-weight: 600;
+    }
+    .nav-link:hover { color: var(--text-black); }
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 12px 0;
+      min-width: 180px;
+      margin-top: 8px;
+      box-shadow: var(--shadow-md);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+    .nav-dropdown-menu a:hover {
+      background: var(--bg-light);
+      color: var(--text-black);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-actions button {
+      color: var(--text-dark);
+    }
+    .nav-actions button:hover { color: var(--text-black); }
+
+    /* 공통 컴포넌트 */
+    .section-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    .img-placeholder {
+      background: var(--placeholder-bg);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .img-placeholder svg {
+      color: var(--placeholder-icon);
+      width: 48px;
+      height: 48px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: var(--text-black);
+      color: #FFFFFF;
+      border: 1px solid var(--text-black);
+    }
+
+    /* 타임라인 섹션 */
+    .timeline-section {
+      padding: 100px 0 80px;
+      background: var(--bg-white);
+    }
+    .timeline-track {
+      max-width: 800px;
+      margin: 60px auto 0;
+      position: relative;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border-light);
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative;
+      padding: 32px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    .timeline-item:nth-child(odd) .timeline-content {
+      grid-column: 1;
+      text-align: right;
+    }
+    .timeline-item:nth-child(odd) .timeline-dot-wrap {
+      grid-column: 2;
+      justify-self: start;
+    }
+    .timeline-item:nth-child(even) .timeline-content {
+      grid-column: 2;
+      text-align: left;
+    }
+    .timeline-item:nth-child(even) .timeline-dot-wrap {
+      grid-column: 1;
+      justify-self: end;
+    }
+    .timeline-dot-wrap {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--text-black);
+      border: 3px solid var(--bg-white);
+      box-shadow: 0 0 0 2px var(--border-light);
+    }
+    .timeline-year {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 8px;
+    }
+    .timeline-desc {
+      font-size: 15px;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+
+    /* 통계 섹션 */
+    .stats-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .stat-label {
+      font-size: 15px;
+      color: var(--text-gray);
+    }
+
+    /* 비전 섹션 */
+    .vision-section {
+      padding: 80px 0;
+      background: var(--bg-white);
+    }
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+    .vision-card {
+      padding: 32px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .vision-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .vision-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--text-dark);
+    }
+    .vision-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+    }
+    .vision-desc {
+      font-size: 15px;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+    .vision-closing {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 17px;
+      color: var(--text-dark);
+      line-height: 1.8;
+    }
+
+    /* 푸터 */
+    .footer-light {
+      padding: 60px 0 32px;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 4px 0;
+    }
+    .footer-col a:hover { color: var(--text-dark); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* TOP 버튼 */
+    .top-button {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--text-black);
+      color: white;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      z-index: 90;
+    }
+    .top-button.show { display: flex; }
+    .top-button:hover { opacity: 0.85; }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .section-title { font-size: 28px; }
+      
+      .timeline-track::before { left: 24px; }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-left: 60px;
+      }
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        grid-column: 1;
+        text-align: left;
+      }
+      .timeline-item:nth-child(odd) .timeline-dot-wrap,
+      .timeline-item:nth-child(even) .timeline-dot-wrap {
+        position: absolute;
+        left: 0;
+        top: 32px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+      .stat-number { font-size: 36px; }
+
+      .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="page_01.html" class="nav-logo">UNCOMMON TOWEL</a>
+        <nav class="nav-links">
+          <a href="page_01.html" class="nav-link">메인</a>
+          <div class="nav-dropdown">
+            <a href="page_02.html" class="nav-link active">브랜드</a>
+            <div class="nav-dropdown-menu">
+              <a href="page_02.html">브랜드 철학</a>
+              <a href="page_03.html">브랜드 스토리</a>
+              <a href="page_04.html">브랜드 여정</a>
+              <a href="page_05.html">소재 이야기</a>
+              <a href="page_06.html">지속가능성</a>
+            </div>
+          </div>
+          <a href="page_07.html" class="nav-link">제품</a>
+          <a href="page_08.html" class="nav-link">타월 가이드</a>
+          <div class="nav-dropdown">
+            <a href="page_09.html" class="nav-link">B2B문의</a>
+            <div class="nav-dropdown-menu">
+              <a href="page_09.html">대량구매</a>
+              <a href="page_10.html">파트너십</a>
+            </div>
+          </div>
+          <a href="page_11.html" class="nav-link">고객 후기</a>
+          <div class="nav-dropdown">
+            <a href="page_12.html" class="nav-link">고객센터</a>
+            <div class="nav-dropdown-menu">
+              <a href="page_12.html">FAQ</a>
+              <a href="page_13.html">1:1 문의</a>
+              <a href="page_14.html">주문 조회</a>
+              <a href="page_15.html">매장 안내</a>
+            </div>
+          </div>
+        </nav>
+        <div class="nav-actions">
+          <button><i data-lucide="search" width="20" height="20"></i></button>
+          <button><i data-lucide="user" width="20" height="20"></i></button>
+          <button><i data-lucide="shopping-cart" width="20" height="20"></i></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 섹션 1: 타임라인 -->
+    <section class="timeline-section">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label">언커먼타올이 걸어온 길</p>
+          <h1 class="section-title">흔한 수건에서 비범한 기준으로</h1>
+        </div>
+
+        <div class="timeline-track">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <p class="timeline-year">2000년대 중반</p>
+              <p class="timeline-desc">기념품·특판 사업 시작. 시계 납품으로 B2B 영업 기반 구축</p>
+            </div>
+            <div class="timeline-dot-wrap">
+              <div class="timeline-dot"></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <p class="timeline-year">전성기</p>
+              <p class="timeline-desc">연 매출 80~90억 달성. 공공기관, 은행, 대학 등 전국 거래처 확보. 최대 직원 20명 운영</p>
+            </div>
+            <div class="timeline-dot-wrap">
+              <div class="timeline-dot"></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <p class="timeline-year">2021년 여름</p>
+              <p class="timeline-desc">뱀부 100% 페이스타월 본격 개발 착수. 습식 직조 공법 연구 시작</p>
+            </div>
+            <div class="timeline-dot-wrap">
+              <div class="timeline-dot"></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <p class="timeline-year">2021~2024년</p>
+              <p class="timeline-desc">4년간 R&D. 5g 단위 그램수 테스트, 216g 최적값 도출. 12가지 색상 개발. 필드테스트 수천 회</p>
+            </div>
+            <div class="timeline-dot-wrap">
+              <div class="timeline-dot"></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <p class="timeline-year">2024년</p>
+              <p class="timeline-desc">KC 인증 1등급 취득. 항균 95% 인증, 세탁 견뢰도 최고 등급 확보. 디자인 등록 완료</p>
+            </div>
+            <div class="timeline-dot-wrap">
+              <div class="timeline-dot"></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <p class="timeline-year">2025년</p>
+              <p class="timeline-desc">언커먼타올 브랜드 정식 런칭. Blue Label 시리즈 출시. 월 5,000장 생산 체제 전환</p>
+            </div>
+            <div class="timeline-dot-wrap">
+              <div class="timeline-dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 2: 통계 -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">숫자로 보는 언커먼타올</h2>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number" data-count="4">0</div>
+            <p class="stat-label">R&D 기간 (년)</p>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="216">0</div>
+            <p class="stat-label">최적 그램수 (g)</p>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="95">0</div>
+            <p class="stat-label">항균률 (%)</p>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="14">0</div>
+            <p class="stat-label">텍스타일 업력 (년)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 섹션 3: 비전 -->
+    <section class="vision-section">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">다음 장을 쓰는 중입니다</h2>
+        </div>
+
+        <div class="vision-grid">
+          <div class="vision-card">
+            <div class="vision-icon">
+              <i data-lucide="shirt"></i>
+            </div>
+            <h3 class="vision-title">가운 라인 출시</h3>
+            <p class="vision-desc">같은 뱀부 100% 소재, 프리사이즈가 아닌 정확한 사이즈 구분. 수건과 같은 기준으로.</p>
+          </div>
+
+          <div class="vision-card">
+            <div class="vision-icon">
+              <i data-lucide="briefcase"></i>
+            </div>
+            <h3 class="vision-title">여행용 패키지</h3>
+            <p class="vision-desc">방수 파우치에 담긴 언커먼타올. 어디에서든 같은 품질을 경험할 수 있도록.</p>
+          </div>
+
+          <div class="vision-card">
+            <div class="vision-icon">
+              <i data-lucide="store"></i>
+            </div>
+            <h3 class="vision-title">오프라인 경험</h3>
+            <p class="vision-desc">백화점 입점과 팝업스토어. 손으로 직접 만져보는 순간, 차이를 느끼실 거예요.</p>
+          </div>
+        </div>
+
+        <p class="vision-closing">
+          10억 매출에 높은 마진. 100억보다 가치 있는 구조를 만들고 있어요.<br>
+          많이 파는 것보다, 오래 사랑받는 브랜드를 만들겠습니다.
+        </p>
+
+        <div style="text-align:center; margin-top:40px;">
+          <a href="page_07.html" class="btn btn-primary">제품 보러가기</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="footer-light">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand-name">UNCOMMON TOWEL</p>
+          <p class="footer-brand-desc">매일 피부에 닿는 수건의 품질에<br>타협하지 않는 브랜드</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">BRAND</p>
+          <a href="page_02.html">브랜드 철학</a>
+          <a href="page_03.html">브랜드 스토리</a>
+          <a href="page_05.html">소재 이야기</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">SHOP</p>
+          <a href="page_07.html">제품</a>
+          <a href="page_08.html">타월 가이드</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">SUPPORT</p>
+          <a href="page_12.html">FAQ</a>
+          <a href="page_13.html">1:1 문의</a>
+          <a href="page_14.html">주문 조회</a>
+          <a href="page_15.html">매장 안내</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 UNCOMMON TOWEL. All rights reserved.</span>
+        <span><a href="#">개인정보처리방침</a> | <a href="#">이용약관</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOP 버튼 -->
+  <button class="top-button" id="topButton">
+    <i data-lucide="arrow-up" width="20" height="20"></i>
+  </button>
+
+  <script>
+    lucide.createIcons();
+
+    // TOP 버튼
+    const topButton = document.getElementById('topButton');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        topButton.classList.add('show');
+      } else {
+        topButton.classList.remove('show');
+      }
+    });
+    topButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 숫자 카운터 애니메이션
+    const counters = document.querySelectorAll('.stat-number');
+    const speed = 50;
+    
+    const animateCounter = (counter) => {
+      const target = parseInt(counter.getAttribute('data-count'));
+      const increment = target / speed;
+      let count = 0;
+      
+      const updateCount = () => {
+        count += increment;
+        if (count < target) {
+          counter.textContent = Math.ceil(count);
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.textContent = target;
+        }
+      };
+      updateCount();
+    };
+
+    // Intersection Observer로 화면에 보일 때 애니메이션 시작
+    const observerOptions = {
+      threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.textContent === '0') {
+          animateCounter(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    counters.forEach(counter => observer.observe(counter));
+  </script>
+</body>
+</html>
