@@ -1,0 +1,726 @@
+<!-- PAGE: 지속가능성 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지속가능성 | UNCOMMON TOWEL - 뱀부 100% 프리미엄 페이스타월</title>
+  <meta name="description" content="언커먼타올은 뱀부 100% 소재와 친환경 생산 공정으로 지속가능한 럭셔리를 추구합니다. 빠르게 자라는 대나무, 무농약 재배, 생분해 패키징으로 환경을 생각합니다.">
+  <meta name="keywords" content="언커먼타올, 프리미엄 수건, 뱀부 타월, 페이스타월, 대나무 수건, 항균 수건, 속건 수건, 혼수 수건, 선물 수건, 지속가능성, 친환경 수건">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --text-black: #1A1A1A;
+      --text-dark: #333333;
+      --text-gray: #666666;
+      --text-light: #999999;
+      --text-muted: #BCBCBC;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F5F5;
+      --bg-dark: #2D2D2D;
+      --bg-black: #1A1A1A;
+      --border-light: #E0E0E0;
+      --border-default: #D0D0D0;
+      --placeholder-bg: #E0E0E0;
+      --placeholder-icon: #BCBCBC;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      color: var(--text-gray);
+      line-height: 1.6;
+      background: var(--bg-white);
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 헤더 */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+      transition: all 0.3s;
+    }
+    .nav.scrolled {
+      background: rgba(255,255,255,0.95);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      letter-spacing: 0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+    .nav-links > li {
+      position: relative;
+    }
+    .nav-links > li > a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-dark);
+      display: block;
+      padding: 8px 0;
+    }
+    .nav-links > li.active > a {
+      color: var(--text-black);
+      font-weight: 600;
+    }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: -16px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 8px 0;
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.2s;
+      box-shadow: var(--shadow-md);
+    }
+    .nav-links > li:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: var(--text-gray);
+    }
+    .nav-dropdown a:hover {
+      background: var(--bg-light);
+      color: var(--text-black);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-actions button {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+    }
+    .nav-actions svg { width: 20px; height: 20px; }
+    .nav-hamburger { display: none; }
+
+    /* 버튼 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: var(--text-black);
+      color: #FFFFFF;
+      border: 1px solid var(--text-black);
+    }
+    .btn-secondary {
+      background: var(--bg-white);
+      color: var(--text-black);
+      border: 1px solid var(--border-default);
+    }
+
+    /* 텍스트 */
+    .section-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* 이미지 플레이스홀더 */
+    .img-placeholder {
+      background: var(--placeholder-bg);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .img-placeholder svg {
+      color: var(--placeholder-icon);
+      width: 48px;
+      height: 48px;
+    }
+
+    /* 아이콘 박스 */
+    .icon-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin: 0 auto 16px;
+    }
+    .icon-box svg {
+      width: 28px;
+      height: 28px;
+      color: var(--text-dark);
+    }
+
+    /* Hero */
+    .hero-dark {
+      padding: 160px 0 120px;
+      background: var(--bg-dark);
+      text-align: center;
+      position: relative;
+    }
+    .hero-dark::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-dark);
+      z-index: 0;
+    }
+    .hero-dark .container {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-dark .section-title {
+      color: #FFFFFF;
+      font-size: 48px;
+      max-width: 700px;
+      margin: 0 auto 16px;
+    }
+    .hero-dark .section-desc {
+      color: rgba(255,255,255,0.7);
+      margin: 0 auto;
+      max-width: 640px;
+    }
+
+    /* 3열 특징 그리드 */
+    .values-section {
+      padding: 100px 0;
+      background: var(--bg-white);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 64px;
+    }
+    .value-item {
+      text-align: center;
+    }
+    .value-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+    }
+    .value-desc {
+      font-size: 15px;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+
+    /* 좌우 분할 섹션 */
+    .split-section {
+      padding: 100px 0;
+    }
+    .split-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* 타임라인 */
+    .timeline-section {
+      padding: 100px 0;
+      background: var(--bg-light);
+    }
+    .timeline-list {
+      max-width: 800px;
+      margin: 64px auto 0;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 40px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+    .timeline-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-black);
+    }
+    .timeline-content h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 8px;
+    }
+    .timeline-content p {
+      font-size: 15px;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+
+    /* CTA */
+    .cta-light {
+      padding: 100px 0;
+      text-align: center;
+      background: var(--bg-white);
+    }
+    .cta-light .section-title {
+      max-width: 600px;
+      margin: 0 auto 16px;
+    }
+    .cta-light .section-desc {
+      margin: 0 auto 32px;
+    }
+
+    /* 푸터 */
+    .footer-light {
+      padding: 60px 0 32px;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 4px 0;
+    }
+    .footer-col a:hover {
+      color: var(--text-black);
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-bottom-links a {
+      color: var(--text-muted);
+    }
+    .footer-bottom-links a:hover {
+      color: var(--text-dark);
+    }
+
+    /* TOP 버튼 */
+    .btn-top {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 90;
+      box-shadow: var(--shadow-md);
+    }
+    .btn-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .btn-top svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger {
+        display: flex;
+        width: 24px;
+        height: 24px;
+        color: var(--text-dark);
+      }
+      .section-title { font-size: 28px; }
+      .hero-dark { padding: 100px 0 80px; }
+      .hero-dark .section-title { font-size: 32px; }
+      .values-grid,
+      .split-inner { grid-template-columns: 1fr; gap: 40px; }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      .btn-top {
+        bottom: 24px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="page_01.html" class="nav-logo">UNCOMMON TOWEL</a>
+        <ul class="nav-links">
+          <li><a href="page_01.html">메인</a></li>
+          <li class="active">
+            <a href="page_02.html">브랜드</a>
+            <ul class="nav-dropdown">
+              <li><a href="page_02.html">브랜드 철학</a></li>
+              <li><a href="page_03.html">브랜드 스토리</a></li>
+              <li><a href="page_04.html">브랜드 여정</a></li>
+              <li><a href="page_05.html">소재 이야기</a></li>
+              <li><a href="page_06.html">지속가능성</a></li>
+            </ul>
+          </li>
+          <li><a href="page_07.html">제품</a></li>
+          <li><a href="page_08.html">타월 가이드</a></li>
+          <li>
+            <a href="page_09.html">B2B문의</a>
+            <ul class="nav-dropdown">
+              <li><a href="page_09.html">대량구매</a></li>
+              <li><a href="page_10.html">파트너십</a></li>
+            </ul>
+          </li>
+          <li><a href="page_11.html">고객 후기</a></li>
+          <li>
+            <a href="page_12.html">고객센터</a>
+            <ul class="nav-dropdown">
+              <li><a href="page_12.html">FAQ</a></li>
+              <li><a href="page_13.html">1:1 문의</a></li>
+              <li><a href="page_14.html">주문 조회</a></li>
+              <li><a href="page_15.html">매장 안내</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="nav-actions">
+          <button><i data-lucide="search"></i></button>
+          <button><i data-lucide="user"></i></button>
+          <button><i data-lucide="shopping-cart"></i></button>
+          <button class="nav-hamburger"><i data-lucide="menu"></i></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero-dark">
+      <div class="container">
+        <p class="section-label" style="color:rgba(255,255,255,0.6);">SUSTAINABILITY</p>
+        <h1 class="section-title">지속가능한 럭셔리</h1>
+        <p class="section-desc">언커먼타올은 뱀부 100% 소재와 친환경 생산 공정으로<br>지구와 사람 모두를 생각하는 지속가능성을 추구합니다.</p>
+      </div>
+    </section>
+
+    <!-- 핵심 가치 3열 -->
+    <section class="values-section">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label">OUR COMMITMENT</p>
+          <h2 class="section-title">환경을 생각하는 세 가지 약속</h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="icon-box"><i data-lucide="sprout"></i></div>
+            <h3 class="value-title">뱀부 100% 소재</h3>
+            <p class="value-desc">빠르게 자라는 대나무는 면 대비 1/3 수준의 물 사용량으로 재배 가능하며, 농약이나 비료 없이도 자랍니다. 탄소 흡수율은 일반 나무 대비 35% 이상 높습니다.</p>
+          </div>
+          <div class="value-item">
+            <div class="icon-box"><i data-lucide="droplets"></i></div>
+            <h3 class="value-title">친환경 생산 공정</h3>
+            <p class="value-desc">습식 직조 공정에서 발생하는 물은 100% 정화 후 재사용하며, OEKO-TEX 인증을 받은 무해 염료만 사용합니다. 제직 과정에서 발생하는 원단 자투리는 업사이클링합니다.</p>
+          </div>
+          <div class="value-item">
+            <div class="icon-box"><i data-lucide="recycle"></i></div>
+            <h3 class="value-title">생분해 패키징</h3>
+            <p class="value-desc">제품 포장에 사용되는 민트스톤 컬러 박스는 FSC 인증을 받은 재생지로 제작되며, 은방울꽃 리플렛과 라벨 역시 콩기름 잉크로 인쇄한 생분해 소재입니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 좌우 분할: 순환 경제 -->
+    <section class="split-section" style="background:var(--bg-light);">
+      <div class="container">
+        <div class="split-inner">
+          <div class="img-placeholder" style="aspect-ratio:4/3;">
+            <i data-lucide="image"></i>
+          </div>
+          <div>
+            <p class="section-label">CIRCULAR ECONOMY</p>
+            <h2 class="section-title">순환하는 제품 수명</h2>
+            <p class="section-desc" style="max-width:100%; margin-bottom:24px;">
+              언커먼타올의 뱀부 타월은 사용 후 자연 분해가 가능하며, 평균 3~5년의 긴 사용 수명을 자랑합니다. 세탁 견뢰도 최고 등급(4-5급)으로 200회 이상 세탁해도 품질이 유지됩니다.
+            </p>
+            <p class="section-desc" style="max-width:100%;">
+              고객님께서 더 이상 사용하지 않는 제품은 수거 프로그램을 통해 업사이클링 소재로 재탄생합니다. 지속가능한 럭셔리는 오래 사용할 수 있는 품질에서 시작됩니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 타임라인: 탄소 중립 로드맵 -->
+    <section class="timeline-section">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label">ROADMAP</p>
+          <h2 class="section-title">탄소 중립을 향한 여정</h2>
+          <p class="section-desc mx-auto">언커먼타올은 2030년 탄소 중립을 목표로 단계적 실천 계획을 수립하고 있습니다.</p>
+        </div>
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="timeline-label">2025</div>
+            <div class="timeline-content">
+              <h3>제품 탄소발자국 측정</h3>
+              <p>전 제품의 생산·유통·폐기 단계별 탄소 배출량을 정밀 측정하고, 제품 라벨에 탄소발자국 정보를 투명하게 공개합니다.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label">2026</div>
+            <div class="timeline-content">
+              <h3>재생 에너지 전환</h3>
+              <p>협력 공장의 전력 사용을 단계적으로 태양광·풍력 등 재생 에너지로 전환하며, 물류 과정에서 전기 차량 도입을 확대합니다.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label">2028</div>
+            <div class="timeline-content">
+              <h3>패키징 100% 재생소재</h3>
+              <p>모든 제품 패키징을 재생 소재 또는 생분해 소재로 전환하며, 불필요한 포장재를 최소화합니다.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-label">2030</div>
+            <div class="timeline-content">
+              <h3>탄소 중립 달성</h3>
+              <p>생산·유통·폐기 전 과정에서 발생하는 탄소 배출량을 상쇄하고, 인증된 탄소 크레딧을 통해 넷 제로(Net Zero)를 실현합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 좌우 분할: 사회적 책임 -->
+    <section class="split-section">
+      <div class="container">
+        <div class="split-inner">
+          <div>
+            <p class="section-label">SOCIAL RESPONSIBILITY</p>
+            <h2 class="section-title">공정한 생산, 투명한 공급망</h2>
+            <p class="section-desc" style="max-width:100%; margin-bottom:24px;">
+              언커먼타올은 공정무역 원칙을 준수하며, 협력 공장의 근로 환경과 임금 수준을 정기적으로 모니터링합니다. 모든 생산 파트너는 국제 노동 기준을 충족해야 합니다.
+            </p>
+            <p class="section-desc" style="max-width:100%;">
+              원료 조달부터 완제품 출고까지 전 과정을 추적 가능한 시스템으로 관리하며, 고객님께 공급망 정보를 투명하게 공개합니다. 지속가능한 럭셔리는 사람을 존중하는 데서 시작됩니다.
+            </p>
+          </div>
+          <div class="img-placeholder" style="aspect-ratio:4/3;">
+            <i data-lucide="image"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-light">
+      <div class="container">
+        <h2 class="section-title">지속가능한 럭셔리를<br>경험해보세요</h2>
+        <p class="section-desc mx-auto">언커먼타올과 함께 환경을 생각하는 일상의 선택을 시작하세요.</p>
+        <a href="page_07.html" class="btn btn-primary">제품 보러가기</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="footer-light">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand-name">UNCOMMON TOWEL</p>
+          <p class="footer-brand-desc">뱀부 100% 프리미엄 페이스타월</p>
+          <p style="font-size:13px; color:var(--text-muted); line-height:1.6;">
+            대표: [대표자명]<br>
+            사업자등록번호: [사업자번호]<br>
+            주소: [주소]<br>
+            전화: [전화번호]<br>
+            이메일: [이메일]
+          </p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">BRAND</p>
+          <a href="page_02.html">브랜드 철학</a>
+          <a href="page_03.html">브랜드 스토리</a>
+          <a href="page_05.html">소재 이야기</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">SHOP</p>
+          <a href="page_07.html">제품</a>
+          <a href="page_08.html">타월 가이드</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">SUPPORT</p>
+          <a href="page_12.html">FAQ</a>
+          <a href="page_13.html">1:1 문의</a>
+          <a href="page_14.html">주문 조회</a>
+          <a href="page_15.html">매장 안내</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">B2B</p>
+          <a href="page_09.html">대량구매</a>
+          <a href="page_10.html">파트너십</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 UNCOMMON TOWEL. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">개인정보처리방침</a>
+          <a href="#">이용약관</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOP 버튼 -->
+  <button class="btn-top" id="btnTop">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <script>
+    lucide.createIcons();
+
+    // 스크롤 헤더
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // TOP 버튼
+    const btnTop = document.getElementById('btnTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnTop.classList.add('visible');
+      } else {
+        btnTop.classList.remove('visible');
+      }
+    });
+    btnTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
