@@ -1,0 +1,700 @@
+<!-- PAGE: 주문 조회 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주문 조회 | UNCOMMON TOWEL - 뱀부 100% 프리미엄 페이스타월</title>
+  <meta name="description" content="언커먼타올 주문 내역을 조회하고 배송 현황을 확인하세요. 비회원도 주문번호로 간편하게 조회할 수 있습니다.">
+  <meta name="keywords" content="언커먼타올, 프리미엄 수건, 뱀부 타월, 페이스타월, 대나무 수건, 항균 수건, 속건 수건, 혼수 수건, 선물 수건, 주문 조회, 배송 조회">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --text-black: #1A1A1A;
+      --text-dark: #333333;
+      --text-gray: #666666;
+      --text-light: #999999;
+      --text-muted: #BCBCBC;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F5F5;
+      --bg-dark: #2D2D2D;
+      --bg-black: #1A1A1A;
+      --border-light: #E0E0E0;
+      --border-default: #D0D0D0;
+      --placeholder-bg: #E0E0E0;
+      --placeholder-icon: #BCBCBC;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+      --accent: #4A9B8E;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      color: var(--text-gray);
+      line-height: 1.6;
+      background: var(--bg-white);
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; background: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 헤더 */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border-light);
+      transition: all 0.3s;
+    }
+    .nav.scrolled {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      letter-spacing: 1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+    .nav-item {
+      position: relative;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dark);
+      cursor: pointer;
+    }
+    .nav-item.active { color: var(--accent); }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-md);
+      padding: 12px 0;
+      min-width: 180px;
+      display: none;
+      margin-top: 12px;
+    }
+    .nav-item:hover .nav-dropdown { display: block; }
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: var(--text-gray);
+      white-space: nowrap;
+    }
+    .nav-dropdown a:hover { background: var(--bg-light); color: var(--text-black); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-actions svg { width: 20px; height: 20px; color: var(--text-dark); cursor: pointer; }
+    .nav-mobile-toggle { display: none; }
+
+    /* 버튼 */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: var(--text-black);
+      color: #FFFFFF;
+      border: 1px solid var(--text-black);
+    }
+    .btn-secondary {
+      background: var(--bg-white);
+      color: var(--text-black);
+      border: 1px solid var(--border-default);
+    }
+
+    /* 텍스트 */
+    .section-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-black);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-gray);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* 히어로 */
+    .hero-simple {
+      padding: 80px 0 60px;
+      background: var(--bg-light);
+      text-align: center;
+    }
+    .hero-simple .section-title { font-size: 32px; }
+
+    /* 주문 조회 폼 */
+    .order-search-section {
+      padding: 80px 0;
+      background: var(--bg-white);
+    }
+    .search-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-bottom: 2px solid var(--border-light);
+      margin-bottom: 48px;
+    }
+    .search-tab {
+      padding: 16px 40px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-light);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .search-tab.active {
+      color: var(--text-black);
+    }
+    .search-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--text-black);
+    }
+    .search-panel {
+      display: none;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .search-panel.active { display: block; }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--text-dark);
+      transition: border-color 0.2s;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--text-dark);
+    }
+    .form-input::placeholder {
+      color: var(--text-muted);
+    }
+    .form-submit {
+      width: 100%;
+      margin-top: 32px;
+    }
+    .form-note {
+      margin-top: 24px;
+      padding: 16px;
+      background: var(--bg-light);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    /* 주문 조회 가이드 */
+    .guide-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .guide-card {
+      padding: 32px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .guide-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .guide-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--text-dark);
+    }
+    .guide-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 8px;
+    }
+    .guide-desc {
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    /* 고객센터 링크 */
+    .cs-links-section {
+      padding: 80px 0;
+      background: var(--bg-white);
+    }
+    .cs-links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cs-link-card {
+      padding: 32px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+    .cs-link-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    .cs-link-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .cs-link-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--text-dark);
+    }
+    .cs-link-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 8px;
+    }
+    .cs-link-desc {
+      font-size: 14px;
+      color: var(--text-gray);
+      margin-bottom: 16px;
+    }
+
+    /* 푸터 */
+    .footer-light {
+      padding: 60px 0 32px;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .footer-col-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-black);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--text-light);
+      padding: 4px 0;
+    }
+    .footer-col a:hover { color: var(--text-black); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-links a:hover { color: var(--text-gray); }
+
+    /* TOP 버튼 */
+    .top-button {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      z-index: 90;
+      transition: opacity 0.2s;
+    }
+    .top-button:hover { opacity: 0.85; }
+    .top-button.visible { display: flex; }
+    .top-button svg { width: 20px; height: 20px; }
+
+    /* 반응형 */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { 
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .nav-mobile-toggle svg { width: 24px; height: 24px; color: var(--text-dark); }
+      .section-title { font-size: 28px; }
+      .hero-simple .section-title { font-size: 28px; }
+      .search-tabs { gap: 0; }
+      .search-tab { padding: 12px 24px; font-size: 14px; }
+      .guide-grid { grid-template-columns: 1fr; }
+      .cs-links-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .top-button { bottom: 24px; right: 24px; width: 44px; height: 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="page_01.html" class="nav-logo">UNCOMMON TOWEL</a>
+        <nav class="nav-links">
+          <a href="page_01.html" class="nav-item">메인</a>
+          <div class="nav-item">
+            브랜드
+            <div class="nav-dropdown">
+              <a href="page_02.html">브랜드 철학</a>
+              <a href="page_03.html">브랜드 스토리</a>
+              <a href="page_04.html">브랜드 여정</a>
+              <a href="page_05.html">소재 이야기</a>
+              <a href="page_06.html">지속가능성</a>
+            </div>
+          </div>
+          <a href="page_07.html" class="nav-item">제품</a>
+          <a href="page_08.html" class="nav-item">타월 가이드</a>
+          <div class="nav-item">
+            B2B문의
+            <div class="nav-dropdown">
+              <a href="page_09.html">대량구매</a>
+              <a href="page_10.html">파트너십</a>
+            </div>
+          </div>
+          <a href="page_11.html" class="nav-item">고객 후기</a>
+          <div class="nav-item active">
+            고객센터
+            <div class="nav-dropdown">
+              <a href="page_12.html">FAQ</a>
+              <a href="page_13.html">1:1 문의</a>
+              <a href="page_14.html">주문 조회</a>
+              <a href="page_15.html">매장 안내</a>
+            </div>
+          </div>
+        </nav>
+        <div class="nav-actions">
+          <i data-lucide="search"></i>
+          <i data-lucide="user"></i>
+          <i data-lucide="shopping-bag"></i>
+          <button class="nav-mobile-toggle"><i data-lucide="menu"></i></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero-simple">
+      <div class="container">
+        <h1 class="section-title">주문 조회</h1>
+        <p class="section-desc mx-auto">주문번호와 이메일 또는 연락처로 주문 내역과 배송 현황을 확인하세요</p>
+      </div>
+    </section>
+
+    <!-- 주문 조회 폼 -->
+    <section class="order-search-section">
+      <div class="container">
+        <div class="search-tabs">
+          <div class="search-tab active" data-tab="order">주문번호 조회</div>
+          <div class="search-tab" data-tab="member">회원 조회</div>
+        </div>
+
+        <!-- 주문번호 조회 패널 -->
+        <div class="search-panel active" data-panel="order">
+          <form>
+            <div class="form-group">
+              <label class="form-label">주문번호</label>
+              <input type="text" class="form-input" placeholder="예: UC20250115-000001" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">주문자 이메일</label>
+              <input type="email" class="form-input" placeholder="example@email.com" required>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">조회하기</button>
+          </form>
+          <div class="form-note">
+            <strong>주문번호 확인 방법</strong><br>
+            주문 완료 시 발송된 이메일 또는 SMS에서 주문번호를 확인할 수 있어요
+          </div>
+        </div>
+
+        <!-- 회원 조회 패널 -->
+        <div class="search-panel" data-panel="member">
+          <form>
+            <div class="form-group">
+              <label class="form-label">아이디 (이메일)</label>
+              <input type="email" class="form-input" placeholder="example@email.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">비밀번호</label>
+              <input type="password" class="form-input" placeholder="비밀번호를 입력하세요" required>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">로그인하여 조회</button>
+          </form>
+          <div class="form-note">
+            회원 로그인 시 전체 주문 내역을 한눈에 확인할 수 있어요
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 주문 조회 가이드 -->
+    <section class="guide-section">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label">조회 안내</p>
+          <h2 class="section-title">주문 조회로 확인할 수 있어요</h2>
+        </div>
+        <div class="guide-grid">
+          <div class="guide-card">
+            <div class="guide-icon">
+              <i data-lucide="package"></i>
+            </div>
+            <h3 class="guide-title">배송 현황</h3>
+            <p class="guide-desc">실시간 배송 추적으로 정확한 배송 단계를 확인하세요</p>
+          </div>
+          <div class="guide-card">
+            <div class="guide-icon">
+              <i data-lucide="receipt"></i>
+            </div>
+            <h3 class="guide-title">주문 상세</h3>
+            <p class="guide-desc">주문한 제품과 수량, 결제 금액을 상세하게 확인하세요</p>
+          </div>
+          <div class="guide-card">
+            <div class="guide-icon">
+              <i data-lucide="truck"></i>
+            </div>
+            <h3 class="guide-title">송장 번호</h3>
+            <p class="guide-desc">택배사 송장 번호로 배송 조회 사이트에서 직접 확인하세요</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 고객센터 링크 -->
+    <section class="cs-links-section">
+      <div class="container">
+        <div class="text-center">
+          <p class="section-label">도움이 필요하신가요</p>
+          <h2 class="section-title">더 많은 도움말</h2>
+        </div>
+        <div class="cs-links-grid">
+          <a href="page_12.html" class="cs-link-card">
+            <div class="cs-link-icon">
+              <i data-lucide="help-circle"></i>
+            </div>
+            <h3 class="cs-link-title">자주 묻는 질문</h3>
+            <p class="cs-link-desc">배송·교환·환불 등 자주 묻는 질문을 확인하세요</p>
+            <span class="btn btn-secondary" style="padding:10px 20px; font-size:14px;">FAQ 보기</span>
+          </a>
+          <a href="page_13.html" class="cs-link-card">
+            <div class="cs-link-icon">
+              <i data-lucide="message-square"></i>
+            </div>
+            <h3 class="cs-link-title">1:1 문의</h3>
+            <p class="cs-link-desc">궁금한 사항을 1:1로 문의하세요</p>
+            <span class="btn btn-secondary" style="padding:10px 20px; font-size:14px;">문의하기</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 푸터 -->
+  <footer class="footer-light">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand-name">UNCOMMON TOWEL</p>
+          <p class="footer-brand-desc">뱀부 100% 프리미엄 페이스타월</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">BRAND</p>
+          <a href="page_02.html">브랜드 철학</a>
+          <a href="page_03.html">브랜드 스토리</a>
+          <a href="page_05.html">소재 이야기</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">SHOP</p>
+          <a href="page_07.html">제품</a>
+          <a href="page_08.html">타월 가이드</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-title">SUPPORT</p>
+          <a href="page_12.html">FAQ</a>
+          <a href="page_13.html">1:1 문의</a>
+          <a href="page_14.html">주문 조회</a>
+          <a href="page_15.html">매장 안내</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 UNCOMMON TOWEL. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="#">개인정보처리방침</a>
+          <a href="#">이용약관</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOP 버튼 -->
+  <button class="top-button" id="topButton">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <script>
+    lucide.createIcons();
+
+    // 스크롤 헤더
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // TOP 버튼
+    const topButton = document.getElementById('topButton');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        topButton.classList.add('visible');
+      } else {
+        topButton.classList.remove('visible');
+      }
+    });
+    topButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 탭 전환
+    const tabs = document.querySelectorAll('.search-tab');
+    const panels = document.querySelectorAll('.search-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-tab');
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelector(`[data-panel="${target}"]`).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
